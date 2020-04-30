@@ -1,18 +1,17 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import { Jeju } from '../database/models'
 
 const jejuController = express.Router();
 
-jejuController.get('/', (req: express.Request, res: express.Response) => {
-    res.status(200).send('welcome')
-    // Jeju.find({}, (err: any, result: Document) => {
-    //     res.status(200).send('Check server')
-    // })
-})
-
 /**
- * POST
- * Add a new Crawl data to jeju DB
+ * GET/
+ * retrieve and display all location tags in the Jeju Model
  */
+
+jejuController.get('/', (req: Request, res: Response, next: NextFunction) => {
+    Jeju.find({}, (err: any, result: Document) => {
+        res.status(200).send('Check server')
+    })
+})
 
 export default jejuController
