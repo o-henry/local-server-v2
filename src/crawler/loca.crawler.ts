@@ -2,7 +2,7 @@
 import dotenv from 'dotenv'
 dotenv.config();
 import saveLocationToDB from './save.locaTags'
-import { jejuSchema } from '../database/schemas'
+import { Jeju } from '../database/models'
 import puppeteer from 'puppeteer'
 
 const jeju = "https://www.instagram.com/explore/tags/%EC%A0%9C%EC%A3%BC%EB%8F%84/";
@@ -54,13 +54,13 @@ const tab = async (id, pwd, url) => {
             console.log("로케이션 태그가 존재하지 않습니다.", error);
 
             if (location !== "") {
-                saveLocationToDB(process.env.MONGO_URL_JEJU, jejuSchema, location);
+                saveLocationToDB(process.env.MONGO_URL_JEJU, Jeju, location);
             }
             await page.click("._65Bje.coreSpriteRightPaginationArrow");
         }
         //Click the > button when the page is crawling.
         await page.click("._65Bje.coreSpriteRightPaginationArrow");
-        saveLocationToDB(process.env.MONGO_URL_JEJU, jejuSchema, location);
+        saveLocationToDB(process.env.MONGO_URL_JEJU, Jeju, location);
         count++;
     }
     await page.waitFor(25000);

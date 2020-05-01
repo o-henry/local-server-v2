@@ -3,13 +3,7 @@ import mongoose from 'mongoose'
 let locaCounts;
 let isLocation = false;
 
-interface Props {
-    uri: string;
-    schema: any;
-    location: string;
-}
-
-const saveLocationToDB = ({ uri, schema, location }: Props) => {
+const saveLocationToDB = (uri: string, schema: any, location: string) => {
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => {
             schema
@@ -17,6 +11,7 @@ const saveLocationToDB = ({ uri, schema, location }: Props) => {
                 .sort({ _id: -1 })
                 .limit(10)
                 .then((res: any[]) => {
+                    console.log('check-res----', res)
                     res.forEach(element => {
                         element.location == location ? isLocation = true : ''
                     })
