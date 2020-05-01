@@ -8,6 +8,15 @@ import puppeteer from 'puppeteer'
 const jeju = "https://www.instagram.com/explore/tags/%EC%A0%9C%EC%A3%BC%EB%8F%84/";
 var beforeClick, count, location;
 
+/**
+ *
+ * @param {*} url : 지역 별 주소를 할당합니다.
+ * @param {*} db  : 지역 별 db를 할당합니다.
+ * @param {*} id
+ * @param {*} pwd
+ */
+
+
 const tab = async (id, pwd, url) => {
     beforeClick = 0;
     count = 0;
