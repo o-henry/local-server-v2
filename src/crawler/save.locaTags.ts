@@ -10,7 +10,7 @@ interface Props {
 }
 
 const saveLocationToDB = ({ uri, schema, location }: Props) => {
-    mongoose.connect(uri)
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
         .then(() => {
             schema
                 .find()
@@ -31,4 +31,4 @@ const saveLocationToDB = ({ uri, schema, location }: Props) => {
         .catch(e => console.error("error", e));
 }
 
-module.exports = saveLocationToDB
+export default saveLocationToDB

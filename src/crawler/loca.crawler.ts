@@ -1,10 +1,9 @@
 //@ts-nocheck
-//@ts-ignore
-require("@babel/register")
-require("dotenv").config({ path: "../../config/.env" });
-// const jejuSchema = require('../database/schemas/')
-const saveLocationToDB = require('./save.locaTags.ts')
-const puppeteer = require("puppeteer");
+import dotenv from 'dotenv'
+dotenv.config();
+import saveLocationToDB from './save.locaTags'
+import { jejuSchema } from '../database/schemas'
+import puppeteer from 'puppeteer'
 
 const jeju = "https://www.instagram.com/explore/tags/%EC%A0%9C%EC%A3%BC%EB%8F%84/";
 var beforeClick, count, location;

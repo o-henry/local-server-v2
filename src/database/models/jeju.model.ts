@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { jejuSchema } from "@schemas/schemas"
+import { jejuSchema } from "../schemas"
 
 const Jeju = mongoose.model("Jeju", jejuSchema);
 

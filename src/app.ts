@@ -1,6 +1,6 @@
 require("dotenv").config({ path: "./config/.env" });
 import express, { Application } from 'express'
-import { jejuController } from 'controller'
+import { jejuController } from './controller'
 import mongoose from 'mongoose';
 
 const app: Application = express();
